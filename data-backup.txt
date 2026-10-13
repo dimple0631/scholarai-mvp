@@ -1,0 +1,24 @@
+export type Program = {
+  id: string; university: string; program: string; country: string; city: string; level: string;
+  field: string; tuition: number; tuitionPeriod: string; duration: number; currency: string;
+  intake: string; requirement: string; source: string; verified: string; tag: string;
+};
+export type Scholarship = {
+  id: string; name: string; provider: string; country: string; coverage: string; level: string;
+  deadline: string; eligibility: string; source: string; verified: string;
+};
+// Illustrative demo records only. Replace with manually verified official data before public launch.
+export const programs: Program[] = [
+ {id:'p1', university:'University of Manchester',program:'MSc Data Science',country:'United Kingdom',city:'Manchester',level:"Master's",field:'Computer Science',tuition:33000,tuitionPeriod:'per year',duration:1,currency:'GBP',intake:'September 2027',requirement:'Relevant bachelor’s degree; English-language requirements vary by applicant.',source:'https://www.manchester.ac.uk/',verified:'Demo record — verify official page',tag:'Strong academics'},
+ {id:'p2', university:'University of Glasgow',program:'MSc Computing Science',country:'United Kingdom',city:'Glasgow',level:"Master's",field:'Computer Science',tuition:30000,tuitionPeriod:'per year',duration:1,currency:'GBP',intake:'September 2027',requirement:'Relevant degree and university-specific English requirements.',source:'https://www.gla.ac.uk/',verified:'Demo record — verify official page',tag:'Popular choice'},
+ {id:'p3', university:'University of Alberta',program:'BSc Computing Science',country:'Canada',city:'Edmonton',level:"Bachelor's",field:'Computer Science',tuition:36000,tuitionPeriod:'per year',duration:4,currency:'CAD',intake:'September 2027',requirement:'Secondary-school qualification; program prerequisites apply.',source:'https://www.ualberta.ca/',verified:'Demo record — verify official page',tag:'Undergraduate'},
+ {id:'p4', university:'University of Twente',program:'MSc Computer Science',country:'Netherlands',city:'Enschede',level:"Master's",field:'Computer Science',tuition:18000,tuitionPeriod:'per year',duration:2,currency:'EUR',intake:'September 2027',requirement:'Relevant bachelor’s degree; specific programme requirements apply.',source:'https://www.utwente.nl/',verified:'Demo record — verify official page',tag:'Budget to compare'},
+ {id:'p5', university:'University of Adelaide',program:'Bachelor of Computer Science',country:'Australia',city:'Adelaide',level:"Bachelor's",field:'Computer Science',tuition:49000,tuitionPeriod:'per year',duration:3,currency:'AUD',intake:'February 2027',requirement:'Recognised secondary qualification and English-language requirements.',source:'https://www.adelaide.edu.au/',verified:'Demo record — verify official page',tag:'Undergraduate'},
+ {id:'p6', university:'Technical University of Munich',program:'MSc Informatics',country:'Germany',city:'Munich',level:"Master's",field:'Computer Science',tuition:6000,tuitionPeriod:'per semester where applicable; confirm current fees',duration:2,currency:'EUR',intake:'Winter semester 2027',requirement:'Relevant degree, aptitude assessment and language requirements depend on programme.',source:'https://www.tum.de/',verified:'Demo record — verify official page',tag:'Check fee details'}
+];
+export const scholarships: Scholarship[] = [
+ {id:'s1',name:'University merit funding',provider:'University funding office',country:'United Kingdom',coverage:'Varies by award',level:"Master's",deadline:'2027-03-01',eligibility:'Eligibility depends on university, course, nationality and academic record.',source:'https://www.manchester.ac.uk/',verified:'Demo placeholder — not a confirmed award'},
+ {id:'s2',name:'International student scholarships',provider:'University funding office',country:'Canada',coverage:'Partial tuition may be available',level:"Bachelor's",deadline:'2027-02-15',eligibility:'Award rules and deadlines vary; check the official university page.',source:'https://www.ualberta.ca/',verified:'Demo placeholder — not a confirmed award'},
+ {id:'s3',name:'Graduate funding opportunities',provider:'University funding office',country:'Netherlands',coverage:'Award-specific',level:"Master's",deadline:'2027-04-01',eligibility:'Check nationality, programme and application-round requirements.',source:'https://www.utwente.nl/',verified:'Demo placeholder — not a confirmed award'}
+];
+

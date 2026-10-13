@@ -212,9 +212,11 @@ export default function Home() {
     .filter((t) => !taskDone.includes(t.key))
     .slice(0, 3);
 
-  const firstProgram = programs.find((p) => p.id === 'p4')!;
+  
+const firstProgram = programs.find((p) => p.id === 'p4') ?? programs[0];
 
-  const annualTotal = firstProgram.tuition + living;
+
+  const annualTotal = (firstProgram?.tuition ?? 0) + living;
   const fundingGap = Math.max(0, annualTotal - profile.budget);
 
   function toggleSave(id: string) {
@@ -635,7 +637,7 @@ export default function Home() {
                       <div>
                         <i className="legend-dot tuition" />
                         <span>Tuition</span>
-                        <strong>{fmt(firstProgram.tuition, budgetCurrency)}</strong>
+                      <strong>{fmt(firstProgram?.tuition ?? 0, budgetCurrency)}</strong>
                       </div>
 
                       <div>
@@ -864,9 +866,9 @@ export default function Home() {
 
                   <div className="form-grid">
                     <Field label="Program to estimate">
-                      <select value={firstProgram.id} onChange={() => {}} disabled>
+                      <select value={firstProgram?.id ?? ''} onChange={() => {}} disabled>
                         <option>
-                          {firstProgram.program} · {firstProgram.university}
+                          {firstProgram ? `${firstProgram.program} · ${firstProgram.university}` : 'No programs available yet'}
                         </option>
                       </select>
                       <small>
@@ -967,7 +969,7 @@ export default function Home() {
                       {fmt(
                         Math.max(
                           0,
-                          firstProgram.tuition + living - scholarship
+                          (firstProgram?.tuition ?? 0) + living - scholarship
                         ),
                         budgetCurrency
                       )}
@@ -979,7 +981,7 @@ export default function Home() {
                       Tuition / year <i>Demo value</i>
                     </span>
                     <strong>
-                      {fmt(firstProgram.tuition, budgetCurrency)}
+                      {fmt((firstProgram?.tuition ?? 0), budgetCurrency)}
                     </strong>
                   </div>
 
@@ -1006,8 +1008,8 @@ export default function Home() {
                       {fmt(
                         Math.max(
                           0,
-                          (firstProgram.tuition + living - scholarship) *
-                            firstProgram.duration +
+                          ((firstProgram?.tuition ?? 0) + living - scholarship) *
+                            (firstProgram?.duration ?? 1) +
                             oneTime
                         ),
                         budgetCurrency
@@ -1019,10 +1021,10 @@ export default function Home() {
                     className={`verdict ${
                       Math.max(
                         0,
-                        firstProgram.tuition + living - scholarship
+                        (firstProgram?.tuition ?? 0) + living - scholarship
                       ) <= profile.budget
                         ? 'verdict-good'
-                        : firstProgram.tuition +
+                        : (firstProgram?.tuition ?? 0) +
                             living -
                             scholarship -
                             profile.budget <=
@@ -1039,10 +1041,10 @@ export default function Home() {
                       <strong>
                         {Math.max(
                           0,
-                          firstProgram.tuition + living - scholarship
+                          (firstProgram?.tuition ?? 0) + living - scholarship
                         ) <= profile.budget
                           ? 'Within your stated budget'
-                          : firstProgram.tuition +
+                          : (firstProgram?.tuition ?? 0) +
                               living -
                               scholarship -
                               profile.budget <=
@@ -1054,7 +1056,7 @@ export default function Home() {
                       <p>
                         {Math.max(
                           0,
-                          firstProgram.tuition +
+                          (firstProgram?.tuition ?? 0) +
                             living -
                             scholarship -
                             profile.budget
@@ -1063,7 +1065,7 @@ export default function Home() {
                           : `Estimated gap: ${fmt(
                               Math.max(
                                 0,
-                                firstProgram.tuition +
+                                (firstProgram?.tuition ?? 0) +
                                   living -
                                   scholarship -
                                   profile.budget
